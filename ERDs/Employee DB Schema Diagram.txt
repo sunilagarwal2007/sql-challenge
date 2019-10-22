@@ -1,0 +1,43 @@
+# Create ERD Diagram
+
+departments 
+-
+dept_no STRING PK FK >- dept_emp.dept_no
+dept_name STRING
+
+dept_emp 
+-
+dept_no STRING PK
+emp_no PK INT PK FK >- employees.emp_no
+from_date DATE
+to_date DATE
+
+dept_manager 
+-
+dept_no STRING PK FK >- departments.dept_no
+emp_no INT PK FK >- employees.emp_no
+from_date DATE
+to_date DATE
+	
+employees 
+-
+emp_no INT PK FK >- titles.emp_no
+birth_date DATE
+first_name VARCHAR(30)
+last_name VARCHAR(30)
+gender VARCHAR(16)
+hire_date DATE
+
+salaries 
+-
+emp_no INT PK FK >- employees.emp_no
+salary INT
+from_date DATE PK
+to_date DATE
+
+titles 
+-
+emp_no INT PK
+title VARCHAR(50)
+from_date PK DATE
+to_date DATE
